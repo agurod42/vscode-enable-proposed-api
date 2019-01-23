@@ -4,6 +4,10 @@
     "description": "VS Code extension which adds a command to restart the editor using the --enabled-proposed-api flag",
     "version": "0.0.1",
     "publisher": "agurodriguez",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/agurodriguez/vscode-enable-proposed-api"
+    },
     "engines": {
         "vscode": "^1.30.0"
     },
