@@ -1,0 +1,39 @@
+{
+    "name": "vscode-enable-proposed-api",
+    "displayName": "Enable Proposed API",
+    "description": "VS Code extension which adds a command to restart the editor using the --enabled-proposed-api flag",
+    "version": "0.0.1",
+    "publisher": "agurodriguez",
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.restartAndEnableProposedApi"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.restartAndEnableProposedApi",
+                "title": "Restart with --enable-proposed-api"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^8.10.25",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.27"
+    }
+}
