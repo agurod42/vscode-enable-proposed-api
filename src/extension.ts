@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 function findElegiblePackageJson(): any {
     const packageJsonFilePath = `${vscode.workspace.rootPath}/package.json`;
     const packageJson = JSON.parse(readFileSync(packageJsonFilePath).toString());
-    if (!packageJson.enableProposedApi) throw new Error('The current project doesn\'t use the Proposed API');
+    if (!packageJson.enableProposedApi) throw new Error('The current project doesn\'t use the Proposed API (See https://code.visualstudio.com/api/advanced-topics/using-proposed-api)');
     return packageJson;
 }
 
