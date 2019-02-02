@@ -1,5 +1,7 @@
 # vscode-enable-proposed-api
 
+[![Version](https://vsmarketplacebadge.apphb.com/version/agurodriguez.vscode-enable-proposed-api.svg)](https://marketplace.visualstudio.com/items?itemName=agurodriguez.vscode-enable-proposed-api) [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/agurodriguez.vscode-enable-proposed-api.svg)](https://marketplace.visualstudio.com/items?itemName=agurodriguez.vscode-enable-proposed-api) 
+
 VS Code extension which adds a command to restart the editor using the --enabled-proposed-api flag.
 
 ## Requirements
