@@ -2,6 +2,7 @@
 
 import { spawn } from 'child_process';
 import { readFileSync } from 'fs';
+import { platform } from 'os';
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
@@ -28,8 +29,14 @@ function findElegiblePackageJson(): any {
 function restartAndEnableProposedApi(): void {
     try {
         const packageJson = findElegiblePackageJson();
-        const restartCommand = `ps -e -o pid,command | grep 'Visual Studio Code.app' | cut -d ' ' -f 1 | xargs -L1 kill -9 & sleep 1 & code -n --enable-proposed-api ${packageJson.publisher}.${packageJson.name} ${vscode.workspace.rootPath}`;
-        spawn('sh', ['-c', `osascript -e "tell application \\"Terminal\\" to do script \\"${restartCommand}\\""`]);
+        
+        if (platform() === 'darwin') {
+            const restartCommand = `ps -e -o pid,command | grep 'Visual Studio Code.app' | cut -d ' ' -f 1 | xargs -L1 kill -9 & sleep 1 & code -n --enable-proposed-api ${packageJson.publisher}.${packageJson.name} ${vscode.workspace.rootPath}`;
+            spawn('sh', ['-c', `osascript -e "tell application \\"Terminal\\" to do script \\"${restartCommand}\\""`]);
+        }
+        else {
+            throw new Error('This extension currently works only in macOS');
+        }
     }
     catch (err) {
         vscode.window.showErrorMessage(err.message);
