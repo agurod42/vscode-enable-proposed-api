@@ -32,7 +32,7 @@ function restartAndEnableProposedApi(): void {
         spawn('sh', ['-c', `osascript -e "tell application \\"Terminal\\" to do script \\"${restartCommand}\\""`]);
     }
     catch (err) {
-        vscode.window.showErrorMessage(err);
+        vscode.window.showErrorMessage(err.message);
     }
 }
 
